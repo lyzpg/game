@@ -1,0 +1,48 @@
+h1 {
+    font: 4em 'Fruktur', cursive;
+    color: #008080;
+}
+
+.row {
+    margin: 0px;
+}
+
+.stats-container {
+    margin: auto;
+    background-color: orange;
+    max-width:505px;
+    display:flex;
+    flex-flow: wrap;
+    justify-content: center;
+}
+
+.stats {
+    font-family: Indie Flower;
+    font-weight: bold;
+    font-size: 1.55em;
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+.modal-body {
+  font-family: 'Indie Flower', sans-serif;
+}
+
+canvas {
+    width: 100%;
+    max-width: 505px;
+    max-height: 606px;
+}
+
+.btn {
+    margin: 1em;
+}
+
+/* Styling using an ID, for JavaScript purposes */
+#game {
+    float: none;
+    margin: auto;
+    max-width: 505px;
+    width: 100%;
+}

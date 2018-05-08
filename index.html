@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nine Lives</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fruktur">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie+Flower">
+    <script rel="stylesheet" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-12 text-center"><h1>Nine Lives</h1></div>
+    </div>
+    <div class="stats-container">
+      <div class="stats">
+          <div>Level: <span id="level-value">1</span></div>
+          <div>Belly status: <span id="score-value">10</span> % </div>
+          <div>Lives: <span id="lives-value">9</span></div>
+      </div>
+    </div>
+    <div class="row">
+        <!-- Load canvas div -->
+        <div class="col-sm-12" id="game"></div>
+    </div>
+    <script src="js/resources.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/engine.js"></script>
+    <div class="row">
+        <div class="buttons col-sm-12 text-center">
+            <button type="button" class="btn btn-warning" id="btn-start-game">New Game</button>
+            <button type="button" class="btn btn-warning" id="btn-how-to-play" data-toggle="modal" data-target="#instructions">
+            How to play</button>
+        </div>
+    </div>
+
+    <!-- Modal Code copied from Bootstrap site http://getbootstrap.com/javascript/ -->
+    <!-- Instructions -->
+    <div class="modal fade" id="instructions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel1">Nine Lives Instructions</h4>
+          </div>
+          <div class="modal-body">
+            <h2>Nine lives</h2>
+            <p>You're an independent cat who don't need no owner. As nature's prime
+              scavenging machine, you're unafraid of conquering the hot, dark sea of asphalt in search of sustenance.
+              The world is your feeding station... for as long as you can avoid the metal beasts humans call 'cars'.</p>
+            <p>You can go up, down, left, and right in your scavenge for food; but beware of traffic. </p>
+            <h3>How to win:</h3>
+            <p>You're a cat, you're already winning at life. Just don't die.</p>
+            <h3>How to not die:</h3>
+            <p>Get food, avoid traffic.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Kay, got it</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Instructions -->
+</body>
+</html>
