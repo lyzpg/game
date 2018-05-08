@@ -8,11 +8,7 @@ h1 {
 }
 
 .stats-container {
-    margin: auto;
-    background-color: orange;
     max-width:505px;
-    display:flex;
-    flex-flow: wrap;
     justify-content: center;
 }
 
@@ -39,7 +35,7 @@ canvas {
     margin: 1em;
 }
 
-/* Styling using an ID, for JavaScript purposes */
+/* javaScript required ID styling */
 #game {
     float: none;
     margin: auto;

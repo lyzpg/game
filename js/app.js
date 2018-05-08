@@ -44,15 +44,15 @@ var game = {
             this.playing = false;
         } else {
             this.level ++;
-            heart.reset();
+            life.reset();
             // Increase difficulty by speeding up enemies each level.
             allEnemies.forEach(function(enemy) {
                 enemy.levelUp();
             });
-            // Place the food, and if it overlaps the heart(1up), places food elsewhere
+            // Place the food, and if it overlaps the life icon, places food elsewhere
             do {
-                gem.reset();
-            } while (gem.checkCollision(heart));
+                food.reset();
+            } while (food.checkCollision(life));
             this.writeLevel();
             this.increaseScore(0);
             addEnemies(this, this.level);
@@ -296,41 +296,41 @@ Item.prototype.update = function() {
     }
 };
 
-// Heart object constructor.
+// Life object constructor.
 // Parameters: x, y (coordinates) will be passed to the Item constructor.
 // A width of 90, height of 90, xOffset of 7, yOffset of 53 (see note), and
 // the image URL for the sprite are being passed to the Item constructor.
-// Note: The real yOffset of the heart image is 48 but using 53 instead
-// because the heart goes beyond the top of the tile and I want the player
-// to be on the tile with the majority of the heart to obtain it.
-var Heart = function(x, y) {
-    Item.call(this, x, y, 90, 90, 7, 53, 'images/Heart.png');
+// Note: The real yOffset of the life icon image is 48 but using 53 instead
+// because the life icon goes beyond the top of the tile and I want the player
+// to be on the tile with the majority of the life icon to obtain it.
+var Life = function(x, y) {
+    Item.call(this, x, y, 90, 90, 7, 53, 'images/Life.png');
 };
-Heart.prototype = Object.create(Item.prototype);
-Heart.prototype.constructor = Item;
+Life.prototype = Object.create(Item.prototype);
+Life.prototype.constructor = Item;
 
-// Action(s) to perform when heart is successfully obtained:
+// Action(s) to perform when life is successfully obtained:
 // Gain an extra life
-Heart.prototype.success = function() {
+Life.prototype.success = function() {
     game.extraLife();
 };
 
-// Gem object constructor
+// Food object constructor
 // Parameters: x, y (coordinates) will be passed to the Item constructor.
 // A width of 95, height of 85 (see note), xOffset of 4, yOffset of 58, and
 // the image URL for the sprite are being passed to the Item constructor.
-// Note: The real height of the gem image is 105 but using 85 for height instead
-// because the gem goes beyond the bottom of the tile and I want the player
-// to be on the tile with the majority of the gem to obtain it.
-var Gem = function(x, y) {
+// Note: The real height of the food image is 105 but using 85 for height instead
+// because the food goes beyond the bottom of the tile and I want the player
+// to be on the tile with the majority of the food to obtain it.
+var Food = function(x, y) {
     Item.call(this, x, y, 95, 85, 4, 58, 'images/food.png');
 };
-Gem.prototype = Object.create(Item.prototype);
-Gem.prototype.constructor = Item;
+Food.prototype = Object.create(Item.prototype);
+Food.prototype.constructor = Item;
 
-// Action(s) to perform when gem is successfully obtained:
+// Action(s) to perform when food is successfully obtained:
 // Increase score by 5.
-Gem.prototype.success = function() {
+Food.prototype.success = function() {
     game.increaseScore(5);
 };
 
@@ -340,25 +340,20 @@ var carTeal = new CarTeal(getRandomInt(-125, -225), 60 + game.board.TILE_HEIGHT 
 var carGrey = new CarGrey(getRandomInt(-75, -125),60 + game.board.TILE_HEIGHT* 3);
 var carBlue = new CarBlue(getRandomInt(-50, -100), 60 + game.board.TILE_HEIGHT * 4);
 var player = new Player();
-var heart = new Heart(game.board.TILE_WIDTH * getRandomInt(0, 7),
+var life = new Life(game.board.TILE_WIDTH * getRandomInt(0, 7),
     80 + game.board.TILE_HEIGHT * getRandomInt(0, 6));
-var gem = new Gem(game.board.TILE_WIDTH * getRandomInt(0, 7),
+var food = new Food(game.board.TILE_WIDTH * getRandomInt(0, 7),
     80 + game.board.TILE_HEIGHT * getRandomInt(0, 6));
-// Make sure gem is not placed where it overlaps the heart
-while (gem.checkCollision(heart)) {
-    gem.reset();
+// Make sure food is not placed where it overlaps the life icon
+while (food.checkCollision(life)) {
+    food.reset();
 }
 
 // Any new enemy added must be placed in the allEnemies array.
 // engine.js loops through the array to render enemies.
 var allEnemies = [carOrange, carTeal, carGrey, carBlue];
 
-// Add new enemies at even levels. Used a switch, but JSLint gave an error
-// to not declare variables in a switch, and since these are
-// objects being created, you can't declare them ahead of time.
-// I looked for another way to do this and found this article:
-// http://davidbcalhoun.com/2010/is-hash-faster-than-switch-in-javascript/
-// which is where the below code in tne addEnemies function is adapted from.
+// addEnemies function adapted from http://davidbcalhoun.com/2010/is-hash-faster-than-switch-in-javascript/
 function addEnemies(game, level) {
     var cases = {};
     cases[2] = function() {

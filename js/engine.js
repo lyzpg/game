@@ -94,8 +94,8 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
-        heart.update();
-        gem.update();
+        life.update();
+        food.update();
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
@@ -171,13 +171,13 @@ var Engine = (function(global) {
          * the render function you have defined.
          */
 
-         // Only render the heart and gem if they were not yet obtained in
+         // Only render the life and food if they were not yet obtained in
          // the current level.
-        if (!heart.obtained) {
-            heart.render();
+        if (!life.obtained) {
+            life.render();
         }
-        if (!gem.obtained) {
-            gem.render();
+        if (!food.obtained) {
+            food.render();
         }
         allEnemies.forEach(function(enemy) {
             enemy.render();
@@ -209,7 +209,7 @@ var Engine = (function(global) {
         'images/car-grey.png',
         'images/car-green.png',
         'images/char-cat-girl.png',
-        'images/Heart.png',
+        'images/Life.png',
         'images/food.png'
     ]);
     Resources.onReady(init);
