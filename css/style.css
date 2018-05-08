@@ -10,6 +10,9 @@ h1 {
 .stats-container {
     max-width:505px;
     justify-content: center;
+    margin: auto;
+    display: flex;
+    flex-flow: wrap;
 }
 
 .stats {
