@@ -8,11 +8,11 @@ h1 {
 }
 
 .stats-container {
-    max-width:505px;
-    justify-content: center;
     margin: auto;
-    display: flex;
+    max-width:505px;
+    display:flex;
     flex-flow: wrap;
+    justify-content: center;
 }
 
 .stats {
