@@ -1,19 +1,19 @@
 # Classic Arcade Game Clone
 
-This project was made out of a rubric by Udacity, and it's meant to test acquired knowledge in HTML, CSS, javaScript, and supporting frameworks.
- dIt includes a provided engine, images, resources, and basic app code; with the modifications required to make it work.
+This project was made out of a rubric by Udacity, and it's meant to test acquired knowledge in HTML, CSS, javaScript, and supporting frameworks. It includes a provided engine, images, resources, and basic app code; with the modifications required to make it work.
 
 **Note:** as of this moment, the game cannot be played on a mobile device.
 
 ## About the game
-- Version 2.0
+
+### Version 2.0
 * Fixed `<code>` in line 107 of *app.js* to correct late collision.
 * Improved README file.
 
 ### Installation
 1. Download the zip file into your computer
 1. Unzip the file
-1. Double-click 'index.html' file, so the game loads to your default internet browser
+1. Double-click *'index.html'* file, so the game loads to your default internet browser
 1. Play away!
 
 ## How to play
