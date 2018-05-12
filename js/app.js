@@ -104,7 +104,7 @@ Entity.prototype.render = function() {
 // Parameters: x, y, speed, yOffset, height, sprite, speed
 // Default width of 98 and xOffset of 1.
 var Enemy = function(x, y, speed, yOffset, height, sprite) {
-    Entity.call(this, x, y, 98, height, 1, yOffset, sprite);
+    Entity.call(this, x, y, 198, height, 1, yOffset, sprite); //UPDATE: fixed delayed collision
     this.speed = speed;
 };
 Enemy.prototype = Object.create(Entity.prototype);
@@ -336,8 +336,8 @@ Food.prototype.success = function() {
 
 // Instantiate initial objects.
 var carOrange = new CarOrange(getRandomInt(-175, -250), 60 + game.board.TILE_HEIGHT);
-var carTeal = new CarTeal(getRandomInt(-125, -225), 60 + game.board.TILE_HEIGHT *2);
-var carGrey = new CarGrey(getRandomInt(-75, -125),60 + game.board.TILE_HEIGHT* 3);
+var carTeal = new CarTeal(getRandomInt(-125, -225), 60 + game.board.TILE_HEIGHT * 2);
+var carGrey = new CarGrey(getRandomInt(-75, -125), 60 + game.board.TILE_HEIGHT * 3);
 var carBlue = new CarBlue(getRandomInt(-50, -100), 60 + game.board.TILE_HEIGHT * 4);
 var player = new Player();
 var life = new Life(game.board.TILE_WIDTH * getRandomInt(0, 7),
